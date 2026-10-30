@@ -1,388 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bargain PC's & Parts — Power Supplies</title>
-  <style>
-    /* Keep your existing CSS exactly the same */
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa7b2;
-      --accent:#06b6d4;
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --gap:1.25rem;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:
-        linear-gradient(180deg, rgba(6,182,212,0.03), transparent 30%),
-        var(--bg);
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:2rem;
-    }
-    a{color:inherit; text-decoration:none}
-    img{display:block; max-width:100%}
-    .container{max-width:1200px; margin:0 auto; display:grid; grid-template-columns: 320px 1fr; gap:var(--gap);}
-    .sidebar{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:1.25rem;
-      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
-      height:fit-content;
-      position:sticky;
-      top:2rem;
-    }
-    .brand{display:flex; gap:.75rem; align-items:center; margin-bottom:1rem;}
-    .logo{
-      width:46px; height:46px; border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),#7c3aed);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:700; color:#051026;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.6);
-    }
-    h1{font-size:1.15rem;margin:0}
-    p.lead{color:var(--muted);font-size:.9rem;margin-top:.35rem}
-    .filter-group{margin-top:1rem}
-    label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.5rem}
-    input.search, .controls input[type="search"]{
-      width:100%;
-      padding:.6rem .8rem;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.04);
-      background:var(--glass);
-      color:inherit;
-      outline:none;
-      font-size:.95rem;
-    }
-    select,input[type="checkbox"]{font-size:.95rem}
-    .checkbox-row{display:flex;gap:.5rem;align-items:center;margin:.35rem 0}
-    .btn{
-      display:inline-block;padding:.6rem .9rem;border-radius:10px;
-      background:linear-gradient(90deg,var(--accent),#7c3aed);
-      color:#031124;font-weight:600;border:none;cursor:pointer;
-      box-shadow: 0 8px 20px rgba(7,14,25,0.5);
-    }
-    main{min-height:60vh;}
-    .controls{
-      display:flex; gap:1rem; align-items:center;
-      justify-content:space-between; margin-bottom:1rem; flex-wrap:wrap;
-    }
-    .controls .left{display:flex;gap:.75rem;align-items:center}
-    .controls .right{display:flex;gap:.5rem;align-items:center}
-    .grid{display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:1rem;}
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:0.9rem;
-      box-shadow: 0 8px 28px rgba(2,6,23,0.6);
-      transition: transform .18s ease, box-shadow .18s ease;
-      display:flex; flex-direction:column; gap:.6rem;
-    }
-    .card:hover{ transform: translateY(-6px); box-shadow:0 18px 40px rgba(2,6,23,0.75); }
-    .thumb{border-radius:10px; padding:.6rem; display:flex; align-items:center; justify-content:center; min-height:140px; overflow:hidden;}
-    .meta{display:flex; justify-content:space-between; align-items:flex-start; gap:.5rem;}
-    .title{font-weight:700;font-size:.98rem}
-    .subtitle{color:var(--muted);font-size:.84rem;margin-top:.15rem}
-    .price-row{display:flex; align-items:center; justify-content:space-between; margin-top:.4rem;}
-    .price{font-weight:800;font-size:1.05rem;color:var(--accent)}
-    .specs{color:var(--muted);font-size:.83rem;margin-top:.35rem}
-    .card-actions{display:flex;gap:.5rem;margin-top:.5rem}
-    .ghost{
-      padding:.55rem .7rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);cursor:pointer;font-weight:600;
-    }
-    footer{margin-top:1.5rem;color:var(--muted);text-align:center;font-size:.9rem;}
-    @media(max-width:980px){
-      .container{grid-template-columns: 1fr; padding:0 1rem}
-      .sidebar{position:relative; top:auto}
-      .controls{align-items:flex-start}
-    }
-     .tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-.tab {
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  background: var(--glass);
-  color: var(--muted);
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.tab:hover {
-  background: rgba(51, 85, 158, 0.06);
-  color: #fff;
-}
-.tab.active {
-  background: linear-gradient(90deg,var(--accent),#4e2626);
-  color: #031124;
-}
-
-  </style>
-   <!-- Navigation Tabs -->
-<nav class="tabs">
-  <a href="index.html" class="tab active">Homepage</a>
-  <a href="Products.html" class="tab">Go Back</a>
-</nav>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Supplies | Bargain PC's</title>
+  <meta name="description" content="Shop power supplies at Bargain PC's — great prices, delivered across South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-  <div class="container">
-    <!-- SIDEBAR -->
-    <aside class="sidebar" aria-label="filters">
-      <div class="brand">
-        <div class="logo">BP</div>
-        <div>
-          <h1>Power Supplies</h1>
-          <p class="lead">Reliable, efficient PSUs — modular, non-modular, and semi-modular options.</p>
+<body data-page="shop" data-category="psu">
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" id="shop-crumb" aria-label="Breadcrumb"></nav>
+        <h1 id="shop-title">Power Supplies</h1>
+        <p id="shop-blurb"></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cat-grid large" id="shop-categories"></div>
+      </div>
+    </section>
+
+    <div class="container shop">
+      <aside class="filters" id="filters" aria-label="Filters"></aside>
+      <div>
+        <div class="toolbar">
+          <div class="count">Showing <strong id="result-count">0</strong> products</div>
+          <div class="right">
+            <button class="btn btn-ghost filter-toggle" type="button" id="filter-toggle" aria-controls="filters" aria-expanded="false">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg> Filters
+            </button>
+            <select class="field" id="sort" aria-label="Sort products">
+              <option value="">Recommended</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
         </div>
+        <div class="chips" id="chips"></div>
+        <div class="product-grid" id="product-grid"></div>
       </div>
+    </div>
+  </main>
 
-      <div class="filter-group">
-        <label for="global-search">Quick search</label>
-        <input id="global-search" class="search" placeholder="Search brand, model, or feature" />
-      </div>
-
-      <div class="filter-group">
-        <label>Modular Type</label>
-        <div class="checkbox-row"><input id="type-full" type="checkbox"><label for="type-full">Fully Modular</label></div>
-        <div class="checkbox-row"><input id="type-semi" type="checkbox"><label for="type-semi">Semi Modular</label></div>
-        <div class="checkbox-row"><input id="type-non" type="checkbox"><label for="type-non">Non Modular</label></div>
-      </div>
-
-      <div class="filter-group">
-        <label>Wattage</label>
-        <select id="wattage" style="width:100%; padding:.5rem; border-radius:10px; background:var(--card); border:1px solid rgba(255,255,255,0.03); color:inherit;">
-          <option value="">Any</option>
-          <option value="550">≤ 550W</option>
-          <option value="750">≤ 750W</option>
-          <option value="1000">≤ 1000W</option>
-        </select>
-      </div>
-
-      <div class="filter-group">
-        <label>Sort by price</label>
-        <select id="sort-sidebar" style="width:100%; padding:.5rem; border-radius:10px; background:var(--card); border:1px solid rgba(255,255,255,0.03); color:inherit;">
-          <option value="">Recommended</option>
-          <option value="low">Price: Low → High</option>
-          <option value="high">Price: High → Low</option>
-        </select>
-      </div>
-
-      <div style="margin-top:1rem; display:flex; gap:.5rem;">
-        <button class="btn" onclick="resetFilters()">Reset</button>
-        <a href="cart.html" class="ghost">View Cart</a>
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main>
-      <div class="controls">
-        <div class="left">
-          <h2 style="margin:0">All Power Supplies</h2>
-          <p style="margin:0;color:var(--muted);font-size:.9rem">Showing <strong id="result-count">3</strong> products</p>
-        </div>
-        <div class="right">
-          <input id="search-top" type="search" placeholder="Search PSUs..." />
-          <label for="sort" style="color:var(--muted);font-size:.9rem;margin-left:.5rem">Sort</label>
-          <select id="sort" style="padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-            <option value="">Recommended</option>
-            <option value="low">Price: Low → High</option>
-            <option value="high">Price: High → Low</option>
-          </select>
-        </div>
-      </div>
-
-      <section class="grid" id="product-grid">
-        <article class="card" data-name="Corsair RM750x" data-price="149.99" data-type="full" data-capacity="750">
-          <div class="thumb">
-            <img src="power1.jpg" alt="Corsair RM750x" />
-          </div>
-          <div class="meta">
-            <div>
-              <div class="title">Corsair RM750x</div>
-              <div class="subtitle">750W Fully Modular 80+ Gold</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 2,399</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">Fully Modular • 80+ Gold • Low Noise</div>
-          <div class="card-actions">
-            <a class="ghost" href="#">Quick view</a>
-            <a class="btn" href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="card" data-name="EVGA 600 BR" data-price="59.99" data-type="non" data-capacity="600">
-          <div class="thumb">
-            <img src="power2.jpg" alt="EVGA 600 BR" />
-          </div>
-          <div class="meta">
-            <div>
-              <div class="title">EVGA 600 BR</div>
-              <div class="subtitle">600W Non Modular 80+ Bronze</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 999</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">Non Modular • 80+ Bronze</div>
-          <div class="card-actions">
-            <a class="ghost" href="#">Quick view</a>
-            <a class="btn" href="#">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="card" data-name="Seasonic Focus GX-850" data-price="179.99" data-type="full" data-capacity="850">
-          <div class="thumb">
-            <img src="power3.jpg" alt="Seasonic Focus GX-850" />
-          </div>
-          <div class="meta">
-            <div>
-              <div class="title">Seasonic Focus GX-850</div>
-              <div class="subtitle">850W Fully Modular 80+ Gold</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 2,899</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">Fully Modular • 80+ Gold • Silent Fan</div>
-          <div class="card-actions">
-            <a class="ghost" href="#">Quick view</a>
-            <a class="btn" href="#">Add to cart</a>
-          </div>
-        </article>
-      </section>
-
-      <footer>
-        <p>Top-rated power supplies — replace placeholders with real product images.</p>
-      </footer>
-    </main>
-  </div>
-
-<script>
-const grid = document.getElementById('product-grid');
-const cards = Array.from(grid.querySelectorAll('.card'));
-const searchTop = document.getElementById('search-top');
-const globalSearch = document.getElementById('global-search');
-const resultCount = document.getElementById('result-count');
-const sortControls = [document.getElementById('sort'), document.getElementById('sort-sidebar')];
-
-function normalize(str) { 
-  return String(str || '').toLowerCase(); 
-}
-
-function updateCount(visible) { 
-  if (resultCount) resultCount.textContent = visible; 
-}
-
-// ✅ Add to Cart with event + image + count update
-function addToCart(e, name, price, image) {
-  if (e) e.preventDefault();
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const index = cart.findIndex(item => item.name === name);
-
-  if (index >= 0) {
-    cart[index].quantity += 1;
-  } else {
-    cart.push({ name, price: parseFloat(price), image, quantity: 1 });
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartCount();
-  alert(`${name} added to cart!`);
-}
-
-// ✅ Update cart icon/count
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const icon = document.getElementById('cart-count');
-  if (icon) icon.textContent = count;
-}
-
-function applyFilters() {
-  const q1 = normalize(searchTop ? searchTop.value : '');
-  const q2 = normalize(globalSearch ? globalSearch.value : '');
-  const typeFull = document.getElementById('type-full')?.checked;
-  const typeSemi = document.getElementById('type-semi')?.checked;
-  const typeNon = document.getElementById('type-non')?.checked;
-  const wattMax = document.getElementById('wattage')?.value;
-  const sortVal = sortControls[0]?.value || sortControls[1]?.value;
-
-  let visibleCount = 0;
-  cards.forEach(card => {
-    const name = normalize(card.dataset.name);
-    const type = normalize(card.dataset.type);
-    const watts = parseInt(card.dataset.capacity || '0');
-
-    const qMatch = (!q1 && !q2) || name.includes(q1) || name.includes(q2);
-    const typeMatch = (!typeFull && !typeSemi && !typeNon) ||
-                      (typeFull && type === 'full') ||
-                      (typeSemi && type === 'semi') ||
-                      (typeNon && type === 'non');
-    const wattMatch = !wattMax || watts <= parseInt(wattMax);
-
-    const show = qMatch && typeMatch && wattMatch;
-    card.style.display = show ? '' : 'none';
-    if (show) visibleCount++;
-  });
-
-  // ✅ Sort visible cards correctly
-  const visibleCards = cards.filter(c => c.style.display !== 'none');
-  if (sortVal === 'low') { 
-    visibleCards.sort((a, b) => Number(a.dataset.price) - Number(b.dataset.price)); 
-  }
-  else if (sortVal === 'high') { 
-    visibleCards.sort((a, b) => Number(b.dataset.price) - Number(a.dataset.price)); 
-  }
-  visibleCards.forEach(c => grid.appendChild(c));
-
-  updateCount(visibleCount);
-}
-
-// ✅ Attach events safely
-[searchTop, globalSearch].forEach(inp => {
-  if (inp) inp.addEventListener('input', applyFilters);
-});
-
-['type-full','type-semi','type-non','wattage','sort','sort-sidebar'].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('change', applyFilters);
-});
-
-function resetFilters() {
-  if (searchTop) searchTop.value = '';
-  if (globalSearch) globalSearch.value = '';
-  ['type-full','type-semi','type-non'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.checked = false;
-  });
-  const watt = document.getElementById('wattage');
-  if (watt) watt.value = '';
-  sortControls.forEach(s => { if (s) s.value = ''; });
-  applyFilters();
-}
-
-// Initialize on page load
-applyFilters();
-updateCartCount();
-</script>
-
-
+  <script src="assets/catalog.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

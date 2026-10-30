@@ -2,332 +2,109 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bargain PC's & Parts</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --primary: #0d6efd;     /* bright blue */
-      --primary-dark: #084298; 
-      --bg-dark: #0b0f17;     /* deep black/navy */
-      --card-bg: #141a24;     /* dark grey for cards */
-      --text-light: #e4e4e4;
-      --text-muted: #9aa7b2;
-      --shadow: rgba(0,0,0,0.6);
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* Header */
-    header {
-      background: #000;
-      color: var(--text-light);
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 12px var(--shadow);
-    }
-    header .container {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 1.5rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: var(--primary);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-    nav a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(13,110,253,0.3)),
-                  url('images/hero-bg.jpg') center/cover no-repeat;
-      color: var(--text-light);
-      padding: 7rem 1rem;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-shadow: 0 0 15px rgba(13,110,253,0.6);
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      color: var(--text-muted);
-    }
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 0.9rem 2rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 15px rgba(13,110,253,0.8);
-    }
-
-    /* Products */
-    .products {
-      padding: 5rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .products h2 {
-      font-size: 2.2rem;
-      margin-bottom: 3rem;
-      color: var(--primary);
-      text-align: center;
-      position: relative;
-    }
-    .products h2::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--primary);
-      margin: 0.8rem auto 0;
-      border-radius: 2px;
-      box-shadow: 0 0 10px rgba(13,110,253,0.7);
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2.5rem;
-    }
-    .product-card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 20px rgba(13,110,253,0.5);
-    }
-    .product-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .product-card h3 {
-      font-size: 1.3rem;
-      margin: 1rem 1rem 0.5rem;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-    .product-card p {
-      font-size: 1rem;
-      margin: 0 1rem 1rem;
-      color: var(--text-muted);
-      flex-grow: 1;
-    }
-    .price {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin: 0 1rem 1rem;
-    }
-    .product-card button {
-      margin: 0 1rem 1.5rem;
-      padding: 0.7rem;
-      border: none;
-      background: var(--primary);
-      color: #fff;
-      font-size: 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.2s ease, box-shadow 0.2s ease;
-    }
-    .product-card button:hover {
-      background: var(--primary-dark);
-      box-shadow: 0 0 12px rgba(13,110,253,0.6);
-    }
-
-    /* Contact */
-    .contact {
-      background: #000;
-      color: var(--text-light);
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-    .contact h2 {
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-      color: var(--primary);
-    }
-    .contact p {
-      margin: 0.5rem 0;
-      font-size: 1rem;
-    }
-
-    /* Footer */
-    footer {
-      background: #0a0a0a;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #1a1a1a;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bargain PC's & Parts | PC components at unbeatable prices</title>
+  <meta name="description" content="High-performance PC parts and gaming gear at unbeatable prices. Delivered across South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
+<body data-page="home">
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">● New stock every week</span>
+          <h1>Build your dream rig <span class="hl">for less.</span></h1>
+          <p class="lead">High-performance CPUs, GPUs and gaming gear at prices that don't hurt. Every part tested, every order shipped fast.</p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn btn-primary">Shop all parts <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#deals" class="btn btn-ghost">View this week's deals</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong data-stat="products">100+</strong><span>Products in stock</span></div>
+            <div><strong data-stat="categories">13</strong><span>Categories</span></div>
+            <div><strong>12 mo</strong><span>Warranty on parts</span></div>
+          </div>
+        </div>
 
-  <header>
-    <div class="container">
-      <h1>Bargain PC's</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="cart.html">Cart 🛒</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+        <div class="hero-card">
+          <span class="tag">Best seller</span>
+          <div class="media" data-cat="prebuilt" data-label="Gaming PC"><img src="Q1.jpg" alt="Gaming PC Bundle"></div>
+          <div class="body">
+            <div>
+              <h3><a href="product-details.html?id=gaming-pc-bundle">Gaming PC Bundle</a></h3>
+              <div class="specs">Intel i5 · 16GB RAM · GTX 1660</div>
+            </div>
+            <button class="btn btn-primary" type="button" data-add="gaming-pc-bundle" aria-label="Add Gaming PC Bundle to cart">Add · R9,999</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section class="hero">
-    <h2>💻 Build Your Dream PC</h2>
-    <p>High-performance PC parts at unbeatable prices. Power up your setup today!</p>
-    <a href="products.html" class="btn">Shop Now</a>
-  </section>
+    <!-- Categories -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Shop by category</span>
+            <h2>Everything for your build</h2>
+          </div>
+          <a href="products.html" class="more">All products →</a>
+        </div>
+        <div class="cat-grid" id="home-categories"></div>
+      </div>
+    </section>
 
-  <section class="products">
-    <h2>Featured Products</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="Q1.jpg" alt="Gaming PC">
-        <h3>Gaming PC Bundle</h3>
-        <p>Intel i5, 16GB RAM, GTX 1660</p>
-        <div class="price">R9,999</div>
-        <button onclick="addToCart('Gaming PC Bundle', 9999)">Add to Cart</button>
+    <!-- Perks -->
+    <section class="perks" aria-label="Why shop with us">
+      <div class="container perk-grid">
+        <div class="perk"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7"/><circle cx="5.5" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg><div><strong>Fast delivery</strong><span>Free over R2,000</span></div></div>
+        <div class="perk"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><div><strong>12-month warranty</strong><span>On every component</span></div></div>
+        <div class="perk"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg><div><strong>Easy returns</strong><span>7-day return window</span></div></div>
+        <div class="perk"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><div><strong>Build advice</strong><span>Talk to a real person</span></div></div>
       </div>
-      <div class="product-card">
-         <img src="Q2.jpg" alt="GPU">
-        <h3>NVIDIA GTX 1650</h3>
-        <p>Great 1080p gaming performance</p>
-        <div class="price">R2,499</div>
-        <button onclick="addToCart('NVIDIA GTX 1650', 2499)">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Q3.jpg" alt="SSD">
-        <h3>Samsung 1TB SSD</h3>
-        <p>Fast NVMe storage for gaming</p>
-        <div class="price">R1,299</div>
-        <button onclick="addToCart('Samsung 1TB SSD', 1299)">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Q4.avif" alt="Monitor">
-        <h3>27" Gaming Monitor</h3>
-        <p>144Hz, 1ms response time</p>
-        <div class="price">R3,799</div>
-        <button onclick="addToCart('27\" Gaming Monitor', 3799)">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Q5.jpg" alt="Keyboard">
-        <h3>Mechanical Gaming Keyboard</h3>
-        <p>RGB backlit, blue switches</p>
-        <div class="price">R1,199</div>
-        <button onclick="addToCart('Mechanical Gaming Keyboard', 1199)">Add to Cart</button>
-      </div>
-      <div class="product-card">
-        <img src="Q6.webp" alt="Mouse">
-        <h3>Gaming Mouse</h3>
-        <p>16000 DPI, RGB lighting</p>
-        <div class="price">R899</div>
-        <button onclick="addToCart('Gaming Mouse', 899)">Add to Cart</button>
-      </div>
-      <!-- NEW PRODUCT 1 -->
-      <div class="product-card">
-        <img src="Q7.jpg" alt="Headset">
-        <h3>Surround Gaming Headset</h3>
-        <p>7.1 Surround Sound, Noise-Cancelling Mic</p>
-        <div class="price">R1,499</div>
-        <button onclick="addToCart('Surround Gaming Headset', 1499)">Add to Cart</button>
-      </div>
-      <!-- NEW PRODUCT 2 -->
-      <div class="product-card">
-        <img src="Q8.jpg" alt="Chair">
-        <h3>Ergonomic Gaming Chair</h3>
-        <p>Comfortable design, adjustable height, lumbar support</p>
-        <div class="price">R3,499</div>
-        <button onclick="addToCart('Ergonomic Gaming Chair', 3499)">Add to Cart</button>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <p>📧 sales@bargainpcs.co.za</p>
-    <p>📞 +27 81 234 5678</p>
-    <p>📍 101 Tech Street, Cape Town, South Africa</p>
-  </section>
+    <!-- Deals -->
+    <section class="section" id="deals">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">This week's deals</span>
+            <h2>Featured products</h2>
+          </div>
+          <a href="products.html?sort=low" class="more">Shop by lowest price →</a>
+        </div>
+        <!-- To change the featured products, edit this list of product ids from assets/catalog.js -->
+        <div class="product-grid" id="home-deals"
+             data-ids="nvidia-geforce-gtx-1650, 27-inch-gaming-monitor, amd-ryzen-5-7600, amd-radeon-rx-7800-xt, nvidia-geforce-rtx-3050, corsair-4000d-airflow, lian-li-lancool-215, evga-600-br"></div>
+      </div>
+    </section>
 
-  <footer>
-    &copy; 2025 Bargain PC's & Parts. All rights reserved.
-  </footer>
+    <!-- Contact -->
+    <section class="section" id="contact" style="padding-top:0">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <span class="eyebrow">Need a hand?</span>
+            <h2>Not sure what parts you need?</h2>
+            <p>Tell us your budget and what you play. We'll put together a parts list that gets the most out of every rand.</p>
+            <a href="mailto:sales@bargainpcs.co.za?subject=Build%20advice" class="btn btn-primary">Get a free build quote</a>
+          </div>
+          <ul class="contact-list">
+            <li><a href="mailto:sales@bargainpcs.co.za"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg><span><small>Email</small>sales@bargainpcs.co.za</span></a></li>
+            <li><a href="tel:+27812345678"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span><small>Phone</small>+27 81 234 5678</span></a></li>
+            <li><div><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span><small>Visit us</small>101 Tech Street, Cape Town</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <script>
-  function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existing = cart.find(item => item.name === name);
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({ name, price, qty: 1 });
-    }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} added to cart!`);
-  }
-  </script>
-
+  <script src="assets/catalog.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
-
-
-
-
-
-

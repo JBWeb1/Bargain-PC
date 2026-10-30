@@ -1,424 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bargain PC's & Parts — Gaming Keyboards</title>
-  <style>
-    /* ===== Vars & Reset ===== */
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#9aa7b2;
-      --accent:#06b6d4;
-      --glass: rgba(255,255,255,0.03);
-      --radius:14px;
-      --gap:1.25rem;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:
-        linear-gradient(180deg, rgba(6,182,212,0.03), transparent 30%),
-        var(--bg);
-      color:#e6eef6;
-      padding:2rem;
-    }
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap:var(--gap);
-    }
-    .sidebar{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);
-      padding:1.25rem;
-      box-shadow:0 6px 18px rgba(2,6,23,0.6);
-      height:fit-content;
-      position:sticky;
-      top:2rem;
-    }
-    .brand{
-      display:flex;
-      gap:.75rem;
-      align-items:center;
-      margin-bottom:1rem;
-    }
-    .logo{
-      width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#051026;
-      box-shadow:0 6px 18px rgba(0,0,0,0.6);
-    }
-    h1{font-size:1.15rem;margin:0}
-    p.lead{color:var(--muted);font-size:.9rem;margin-top:.35rem}
-    .filter-group{margin-top:1rem}
-    label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.5rem}
-    input.search{
-      width:100%;
-      padding:.6rem .8rem;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.04);
-      background:var(--glass);
-      color:inherit;
-      outline:none;
-      font-size:.95rem;
-    }
-    select,input[type="checkbox"]{font-size:.95rem}
-    .checkbox-row{display:flex;gap:.5rem;align-items:center;margin:.35rem 0}
-    .btn{
-      display:inline-block;padding:.6rem .9rem;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#031124;font-weight:600;border:none;cursor:pointer;
-      box-shadow:0 8px 20px rgba(7,14,25,0.5);
-    }
-    main{min-height:60vh;}
-    .controls{
-      display:flex;
-      gap:1rem;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:1rem;
-      flex-wrap:wrap;
-    }
-    .controls .left{display:flex;gap:.75rem;align-items:center}
-    .controls input[type="search"]{
-      padding:.6rem .8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--card);color:inherit;outline:none;
-      min-width:220px;
-    }
-    .controls .right{display:flex;gap:.5rem;align-items:center}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-      gap:1rem;
-    }
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:0.9rem;
-      box-shadow:0 8px 28px rgba(2,6,23,0.6);
-      transition:transform .18s ease, box-shadow .18s ease;
-      display:flex;
-      flex-direction:column;
-      gap:.6rem;
-    }
-    .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.75);}
-    .thumb{
-      border-radius:10px;
-      padding:.6rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:140px;
-      overflow:hidden;
-    }
-    .meta{display:flex;justify-content:space-between;gap:.5rem;}
-    .title{font-weight:700;font-size:.98rem}
-    .subtitle{color:var(--muted);font-size:.84rem;margin-top:.15rem}
-    .price-row{display:flex;justify-content:space-between;margin-top:.4rem;}
-    .price{font-weight:800;font-size:1.05rem;color:var(--accent)}
-    .specs{color:var(--muted);font-size:.83rem;margin-top:.35rem}
-    .card-actions{display:flex;gap:.5rem;margin-top:.5rem}
-    .ghost{
-      padding:.55rem .7rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);cursor:pointer;font-weight:600;
-    }
-    footer{margin-top:1.5rem;color:var(--muted);text-align:center;font-size:.9rem;}
-    @media(max-width:980px){
-      .container{grid-template-columns:1fr;padding:0 1rem}
-      .sidebar{position:relative}
-    }
-    
-     .tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-.tab {
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  background: var(--glass);
-  color: var(--muted);
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.tab:hover {
-  background: rgba(51, 85, 158, 0.06);
-  color: #fff;
-}
-.tab.active {
-  background: linear-gradient(90deg,var(--accent),#4e2626);
-  color: #031124;
-}
-  </style>
-   <!-- Navigation Tabs -->
-<nav class="tabs">
-  <a href="index.html" class="tab active">Homepage</a>
-  <a href="Products.html" class="tab">Go Back</a>
-</nav>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboards | Bargain PC's</title>
+  <meta name="description" content="Shop keyboards at Bargain PC's — great prices, delivered across South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-  <div class="container">
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="logo">BP</div>
-        <div>
-          <h1>Gaming Keyboards</h1>
-          <p class="lead">Speed, comfort, and style for every gamer.</p>
+<body data-page="shop" data-category="keyboard">
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" id="shop-crumb" aria-label="Breadcrumb"></nav>
+        <h1 id="shop-title">Keyboards</h1>
+        <p id="shop-blurb"></p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cat-grid large" id="shop-categories"></div>
+      </div>
+    </section>
+
+    <div class="container shop">
+      <aside class="filters" id="filters" aria-label="Filters"></aside>
+      <div>
+        <div class="toolbar">
+          <div class="count">Showing <strong id="result-count">0</strong> products</div>
+          <div class="right">
+            <button class="btn btn-ghost filter-toggle" type="button" id="filter-toggle" aria-controls="filters" aria-expanded="false">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg> Filters
+            </button>
+            <select class="field" id="sort" aria-label="Sort products">
+              <option value="">Recommended</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
         </div>
+        <div class="chips" id="chips"></div>
+        <div class="product-grid" id="product-grid"></div>
       </div>
-      <div class="filter-group">
-        <label>Quick search</label>
-        <input id="global-search" class="search" placeholder="Search keyboard name or feature">
-      </div>
-      <div class="filter-group">
-        <label>Brand</label>
-        <div class="checkbox-row"><input id="brand-logitech" type="checkbox"><label for="brand-logitech">Logitech</label></div>
-        <div class="checkbox-row"><input id="brand-razer" type="checkbox"><label for="brand-razer">Razer</label></div>
-        <div class="checkbox-row"><input id="brand-steelseries" type="checkbox"><label for="brand-steelseries">SteelSeries</label></div>
-      </div>
-      <div class="filter-group">
-        <label>Connection</label>
-        <select id="connection" style="width:100%;padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-          <option value="">Any</option>
-          <option value="wired">Wired</option>
-          <option value="wireless">Wireless</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label>Sort by price</label>
-        <select id="sort-sidebar" style="width:100%;padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-          <option value="">Recommended</option>
-          <option value="low">Price: Low → High</option>
-          <option value="high">Price: High → Low</option>
-        </select>
-      </div>
-      <div style="margin-top:1rem;display:flex;gap:.5rem;">
-        <button class="btn" onclick="resetFilters()">Reset</button>
-        <a href="cart.html" class="ghost">View Cart</a>
-      </div>
-    </aside>
+    </div>
+  </main>
 
-    <!-- MAIN -->
-    <main>
-      <div class="controls">
-        <div class="left">
-          <h2>All Gaming Keyboards</h2>
-          <p style="color:var(--muted);font-size:.9rem">Showing <strong id="result-count">4</strong> products</p>
-        </div>
-        <div class="right">
-          <input id="search-top" type="search" placeholder="Search keyboards...">
-          <select id="sort" style="padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-            <option value="">Recommended</option>
-            <option value="low">Price: Low → High</option>
-            <option value="high">Price: High → Low</option>
-          </select>
-        </div>
-      </div>
-
-      <section class="grid" id="product-grid">
-        <article class="card" data-name="Logitech G915 TKL" data-price="3999" data-brand="logitech" data-connection="wireless">
-          <div class="thumb"><img src="key1.png"></div>
-          <div class="meta">
-            <div>
-              <div class="title">Logitech G915 TKL</div>
-              <div class="subtitle">Wireless • Low-profile Mechanical • RGB</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 3,999</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">GL Tactile Switches • Lightspeed Wireless • 40h Battery</div>
-          <div class="card-actions">
-            <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-            <a class="btn" href="#" onclick="addToCart(event,'Logitech G915 TKL',3999)">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="card" data-name="Razer Huntsman V2" data-price="2999" data-brand="razer" data-connection="wired">
-          <div class="thumb"><img src="key2.webp"></div>
-          <div class="meta">
-            <div>
-              <div class="title">Razer Huntsman V2</div>
-              <div class="subtitle">Wired • Optical Switches • RGB</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 2,999</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">8kHz Polling • PBT Keycaps • Sound Dampening</div>
-          <div class="card-actions">
-            <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-            <a class="btn" href="#" onclick="addToCart(event,'Razer Huntsman V2',2999)">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="card" data-name="SteelSeries Apex Pro" data-price="3499" data-brand="steelseries" data-connection="wired">
-          <div class="thumb"><img src="key3.webp"></div>
-          <div class="meta">
-            <div>
-              <div class="title">SteelSeries Apex Pro</div>
-              <div class="subtitle">Wired • Adjustable Mechanical • RGB</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 3,499</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">OmniPoint Switches • OLED Display • Aluminum Frame</div>
-          <div class="card-actions">
-            <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-            <a class="btn" href="#" onclick="addToCart(event,'SteelSeries Apex Pro',3499)">Add to cart</a>
-          </div>
-        </article>
-
-        <article class="card" data-name="Logitech G413 SE" data-price="1499" data-brand="logitech" data-connection="wired">
-          <div class="thumb"><img src="key4.webp"></div>
-          <div class="meta">
-            <div>
-              <div class="title">Logitech G413 SE</div>
-              <div class="subtitle">Wired • Mechanical • Backlit</div>
-            </div>
-            <div style="text-align:right">
-              <div class="price">R 1,499</div>
-              <div class="subtitle">In stock</div>
-            </div>
-          </div>
-          <div class="specs">Tactile Switches • Aluminum Top Case • White Lighting</div>
-          <div class="card-actions">
-            <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-            <a class="btn" href="#" onclick="addToCart(event,'Logitech G413 SE',1499)">Add to cart</a>
-          </div>
-        </article>
-      </section>
-
-      <footer>
-        <p>Prices are examples — replace placeholder images with actual product images.</p>
-      </footer>
-    </main>
-  </div>
-
-  <script>
-    // ====== PRODUCT FILTER + CART SYSTEM ======
-const grid = document.getElementById('product-grid');
-const cards = Array.from(grid.querySelectorAll('.card'));
-const searchTop = document.getElementById('search-top');
-const globalSearch = document.getElementById('global-search');
-const resultCount = document.getElementById('result-count');
-const sortControls = [document.getElementById('sort'), document.getElementById('sort-sidebar')];
-
-// Normalize strings for search matching
-function normalize(str) {
-  return String(str || '').toLowerCase();
-}
-
-// Update visible product count
-function updateCount(visible) {
-  resultCount.textContent = visible;
-}
-
-// Apply search, brand, connection filters + sorting
-function applyFilters() {
-  const q1 = normalize(searchTop.value);
-  const q2 = normalize(globalSearch.value);
-  const logitech = document.getElementById('brand-logitech').checked;
-  const razer = document.getElementById('brand-razer').checked;
-  const steelseries = document.getElementById('brand-steelseries').checked;
-  const connection = document.getElementById('connection').value;
-  const sortVal = sortControls[0].value || sortControls[1].value;
-
-  let visibleCount = 0;
-  cards.forEach(card => {
-    const name = normalize(card.dataset.name);
-    const brand = normalize(card.dataset.brand);
-    const conn = card.dataset.connection;
-
-    const qMatch = (!q1 && !q2) || name.includes(q1) || name.includes(q2);
-    const brandMatch =
-      (!logitech && !razer && !steelseries) ||
-      (logitech && brand === 'logitech') ||
-      (razer && brand === 'razer') ||
-      (steelseries && brand === 'steelseries');
-    const connectionMatch = !connection || conn === connection;
-
-    const show = qMatch && brandMatch && connectionMatch;
-    card.style.display = show ? '' : 'none';
-    if (show) visibleCount++;
-  });
-
-  const visibleCards = cards.filter(c => c.style.display !== 'none');
-  if (sortVal === 'low') {
-    visibleCards.sort((a, b) => a.dataset.price - b.dataset.price);
-  } else if (sortVal === 'high') {
-    visibleCards.sort((a, b) => b.dataset.price - a.dataset.price);
-  }
-  visibleCards.forEach(c => grid.appendChild(c));
-
-  updateCount(visibleCount);
-}
-
-// Attach search and filter events
-[searchTop, globalSearch].forEach(inp => inp.addEventListener('input', applyFilters));
-['brand-logitech', 'brand-razer', 'brand-steelseries', 'connection', 'sort', 'sort-sidebar'].forEach(id => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('change', applyFilters);
-});
-
-// Reset filters
-function resetFilters() {
-  searchTop.value = '';
-  globalSearch.value = '';
-  document.getElementById('brand-logitech').checked = false;
-  document.getElementById('brand-razer').checked = false;
-  document.getElementById('brand-steelseries').checked = false;
-  document.getElementById('connection').value = '';
-  sortControls.forEach(s => s.value = '');
-  applyFilters();
-}
-
-// ====== CART FUNCTIONS ======
-function addToCart(e, name, price) {
-  e.preventDefault();
-
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-  const existing = cart.find(item => item.name === name);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ name, price: parseFloat(price), qty: 1 });
-  }
-
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert(`${name} added to cart — R ${price}`);
-
-  updateCartCount();
-}
-
-function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const count = cart.reduce((sum, item) => sum + item.qty, 0);
-  const badge = document.getElementById('cart-count');
-  if (badge) badge.textContent = count;
-}
-
-function viewDetails(e) {
-  e.preventDefault();
-  const card = e.target.closest('.card');
-  alert(card.dataset.name + " — R " + card.dataset.price);
-}
-
-// ====== INIT ======
-applyFilters();
-updateCartCount();
-
-  </script>
+  <script src="assets/catalog.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

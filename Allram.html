@@ -1,511 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Bargain PC's & Parts — RAM</title>
-<style>
-/* ===== Vars & Reset ===== */
-:root{
-  --bg:#0f1724;
-  --card:#0b1220;
-  --muted:#9aa7b2;
-  --accent:#06b6d4;
-  --glass: rgba(255,255,255,0.03);
-  --radius:14px;
-  --gap:1.25rem;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:
-    linear-gradient(180deg, rgba(6,182,212,0.03), transparent 30%),
-    var(--bg);
-  color:#e6eef6;
-  padding:2rem;
-}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-.container{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns: 320px 1fr;
-  gap:var(--gap);
-}
-.sidebar{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:var(--radius);
-  padding:1.25rem;
-  box-shadow:0 6px 18px rgba(2,6,23,0.6);
-  height:fit-content;
-  position:sticky;
-  top:2rem;
-}
-.brand{
-  display:flex;
-  gap:.75rem;
-  align-items:center;
-  margin-bottom:1rem;
-}
-.logo{
-  width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700;color:#051026;
-  box-shadow:0 6px 18px rgba(0,0,0,0.6);
-}
-h1{font-size:1.15rem;margin:0}
-p.lead{color:var(--muted);font-size:.9rem;margin-top:.35rem}
-.filter-group{margin-top:1rem}
-label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.5rem}
-input.search{
-  width:100%;
-  padding:.6rem .8rem;
-  border-radius:10px;
-  border:1px solid rgba(255,255,255,0.04);
-  background:var(--glass);
-  color:inherit;
-  outline:none;
-  font-size:.95rem;
-}
-select,input[type="checkbox"]{font-size:.95rem}
-.checkbox-row{display:flex;gap:.5rem;align-items:center;margin:.35rem 0}
-.btn{
-  display:inline-block;padding:.6rem .9rem;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#031124;font-weight:600;border:none;cursor:pointer;
-  box-shadow:0 8px 20px rgba(7,14,25,0.5);
-}
-main{min-height:60vh;}
-.controls{
-  display:flex;
-  gap:1rem;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:1rem;
-  flex-wrap:wrap;
-}
-.controls .left{display:flex;gap:.75rem;align-items:center}
-.controls input[type="search"]{
-  padding:.6rem .8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:var(--card);color:inherit;outline:none;
-  min-width:220px;
-}
-.controls .right{display:flex;gap:.5rem;align-items:center}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-  gap:1rem;
-}
-.card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border-radius:12px;
-  padding:0.9rem;
-  box-shadow:0 8px 28px rgba(2,6,23,0.6);
-  transition:transform .18s ease, box-shadow .18s ease;
-  display:flex;
-  flex-direction:column;
-  gap:.6rem;
-}
-.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.75);}
-.thumb{
-  border-radius:10px;
-  padding:.6rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:140px;
-  overflow:hidden;
-}
-.meta{display:flex;justify-content:space-between;gap:.5rem;}
-.title{font-weight:700;font-size:.98rem}
-.subtitle{color:var(--muted);font-size:.84rem;margin-top:.15rem}
-.price-row{display:flex;justify-content:space-between;margin-top:.4rem;}
-.price{font-weight:800;font-size:1.05rem;color:var(--accent)}
-.specs{color:var(--muted);font-size:.83rem;margin-top:.35rem}
-.card-actions{display:flex;gap:.5rem;margin-top:.5rem}
-.ghost{
-  padding:.55rem .7rem;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);cursor:pointer;font-weight:600;
-}
-footer{margin-top:1.5rem;color:var(--muted);text-align:center;font-size:.9rem;}
-@media(max-width:980px){
-  .container{grid-template-columns:1fr;padding:0 1rem}
-  .sidebar{position:relative}
-}
- .tabs {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-.tab {
-  padding: 0.6rem 1.2rem;
-  border-radius: 10px;
-  background: var(--glass);
-  color: var(--muted);
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.tab:hover {
-  background: rgba(51, 85, 158, 0.06);
-  color: #fff;
-}
-.tab.active {
-  background: linear-gradient(90deg,var(--accent),#4e2626);
-  color: #031124;
-}
-
-</style>
- <!-- Navigation Tabs -->
-<nav class="tabs">
-  <a href="index.html" class="tab active">Homepage</a>
-  <a href="Products.html" class="tab">Go Back</a>
-</nav>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memory | Bargain PC's</title>
+  <meta name="description" content="Shop memory at Bargain PC's — great prices, delivered across South Africa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-<div class="container">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="logo">BP</div>
-      <div>
-        <h1>RAM Modules</h1>
-        <p class="lead">DDR4 & DDR5 — Gaming, Workstation & Budget Options</p>
-      </div>
-    </div>
-    <div class="filter-group">
-      <label>Quick search</label>
-      <input id="global-search" class="search" placeholder="Search RAM name or spec">
-    </div>
-    <div class="filter-group">
-      <label>Brand</label>
-      <div class="checkbox-row"><input id="brand-corsair" type="checkbox"><label for="brand-corsair">Corsair</label></div>
-      <div class="checkbox-row"><input id="brand-gskill" type="checkbox"><label for="brand-gskill">G.Skill</label></div>
-      <div class="checkbox-row"><input id="brand-kingston" type="checkbox"><label for="brand-kingston">Kingston</label></div>
-    </div>
-    <div class="filter-group">
-      <label>Type</label>
-      <select id="type" style="width:100%;padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-        <option value="">Any</option>
-        <option value="DDR5">DDR5</option>
-        <option value="DDR4">DDR4</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Sort by price</label>
-      <select id="sort-sidebar" style="width:100%;padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-        <option value="">Recommended</option>
-        <option value="low">Price: Low → High</option>
-        <option value="high">Price: High → Low</option>
-      </select>
-    </div>
-    <div style="margin-top:1rem;display:flex;gap:.5rem;">
-      <button class="btn" onclick="resetFilters()">Reset</button>
-      <a href="cart.html" class="ghost">View Cart</a>
-    </div>
-  </aside>
-
-  <!-- MAIN -->
+<body data-page="shop" data-category="ram">
   <main>
-    <div class="controls">
-      <div class="left">
-        <h2>All RAM Modules</h2>
-        <p style="color:var(--muted);font-size:.9rem">Showing <strong id="result-count">4</strong> products</p>
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" id="shop-crumb" aria-label="Breadcrumb"></nav>
+        <h1 id="shop-title">Memory</h1>
+        <p id="shop-blurb"></p>
       </div>
-      <div class="right">
-        <input id="search-top" type="search" placeholder="Search RAM...">
-        <select id="sort" style="padding:.5rem;border-radius:10px;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:inherit;">
-          <option value="">Recommended</option>
-          <option value="low">Price: Low → High</option>
-          <option value="high">Price: High → Low</option>
-        </select>
-      </div>
-    </div>
-
-    <section class="grid" id="product-grid">
-      <article class="card" data-name="Corsair Vengeance DDR5 32GB" data-price="3499" data-brand="corsair" data-type="DDR5">
-        <div class="thumb"><img src="ram1.jpg"></div>
-        <div class="meta">
-          <div>
-            <div class="title">Corsair Vengeance DDR5 32GB</div>
-            <div class="subtitle">2x16GB • 6000MHz • CL36</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">R 3,499</div>
-            <div class="subtitle">In stock</div>
-          </div>
-        </div>
-        <div class="specs">DDR5 • XMP 3.0 • Black Heatspreader</div>
-        <div class="card-actions">
-          <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-          <a class="btn" href="#" onclick="addToCart(event,'Corsair Vengeance DDR5 32GB',3499)">Add to cart</a>
-        </div>
-      </article>
-
-      <article class="card" data-name="G.Skill Ripjaws V DDR4 16GB" data-price="1299" data-brand="gskill" data-type="DDR4">
-        <div class="thumb"><img src="ram2.webp"></div>
-        <div class="meta">
-          <div>
-            <div class="title">G.Skill Ripjaws V DDR4 16GB</div>
-            <div class="subtitle">2x8GB • 3200MHz • CL16</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">R 1,299</div>
-            <div class="subtitle">In stock</div>
-          </div>
-        </div>
-        <div class="specs">DDR4 • XMP 2.0 • Red Heatspreader</div>
-        <div class="card-actions">
-          <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-          <a class="btn" href="#" onclick="addToCart(event,'G.Skill Ripjaws V DDR4 16GB',1299)">Add to cart</a>
-        </div>
-      </article>
-
-      <article class="card" data-name="Kingston Fury Beast DDR5 16GB" data-price="1899" data-brand="kingston" data-type="DDR5">
-        <div class="thumb"><img src="ram3.jpg"></div>
-        <div class="meta">
-          <div>
-            <div class="title">Kingston Fury Beast DDR5 16GB</div>
-            <div class="subtitle">1x16GB • 5600MHz • CL40</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">R 1,899</div>
-            <div class="subtitle">In stock</div>
-          </div>
-        </div>
-        <div class="specs">DDR5 • Plug & Play • Black Heatspreader</div>
-        <div class="card-actions">
-          <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-          <a class="btn" href="#" onclick="addToCart(event,'Kingston Fury Beast DDR5 16GB',1899)">Add to cart</a>
-        </div>
-      </article>
-
-      <article class="card" data-name="Corsair Vengeance LPX DDR4 8GB" data-price="699" data-brand="corsair" data-type="DDR4">
-        <div class="thumb"><img src="ram4.jpg"></div>
-        <div class="meta">
-          <div>
-            <div class="title">Corsair Vengeance LPX DDR4 8GB</div>
-            <div class="subtitle">1x8GB • 2666MHz • CL16</div>
-          </div>
-          <div style="text-align:right">
-            <div class="price">R 699</div>
-            <div class="subtitle">In stock</div>
-          </div>
-        </div>
-        <div class="specs">DDR4 • Low Profile • Black Heatspreader</div>
-        <div class="card-actions">
-          <a class="ghost" href="#" onclick="viewDetails(event)">Quick view</a>
-          <a class="btn" href="#" onclick="addToCart(event,'Corsair Vengeance LPX DDR4 8GB',699)">Add to cart</a>
-        </div>
-      </article>
-      <!-- Corsair RAM -->
-  <div class="card" data-name="Corsair Vengeance DDR5 32GB 6000MHz" data-brand="corsair" data-price="2999">
-    <div class="thumb"><img src="ram5.jpg" alt="Corsair Vengeance DDR5"></div>
-    <div class="meta">
-      <div class="title">Corsair Vengeance DDR5</div>
-      <div class="subtitle">32GB (2x16GB) 6000MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 2,999</div>
-      <div class="specs">CL36, Black Heatspreader</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'Corsair Vengeance DDR5 32GB 6000MHz',2999)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <div class="card" data-name="Corsair Dominator Platinum RGB DDR5 64GB 6200MHz" data-brand="corsair" data-price="5999">
-    <div class="thumb"><img src="ram6.jpg" alt="Corsair Dominator DDR5"></div>
-    <div class="meta">
-      <div class="title">Corsair Dominator Platinum RGB DDR5</div>
-      <div class="subtitle">64GB (2x32GB) 6200MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 5,999</div>
-      <div class="specs">CL36, RGB Lighting</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'Corsair Dominator Platinum RGB DDR5 64GB 6200MHz',5999)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <!-- G.Skill RAM -->
-  <div class="card" data-name="G.Skill Trident Z5 RGB DDR5 32GB 6400MHz" data-brand="gskill" data-price="3299">
-    <div class="thumb"><img src="ram7.jpg" alt="G.Skill Trident Z5 DDR5"></div>
-    <div class="meta">
-      <div class="title">G.Skill Trident Z5 RGB DDR5</div>
-      <div class="subtitle">32GB (2x16GB) 6400MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 3,299</div>
-      <div class="specs">CL32, RGB Lighting</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'G.Skill Trident Z5 RGB DDR5 32GB 6400MHz',3299)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <div class="card" data-name="G.Skill Ripjaws V DDR4 16GB 3600MHz" data-brand="gskill" data-price="1499">
-    <div class="thumb"><img src="ram8.png" alt="G.Skill Ripjaws V DDR4"></div>
-    <div class="meta">
-      <div class="title">G.Skill Ripjaws V DDR4</div>
-      <div class="subtitle">16GB (2x8GB) 3600MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 1,499</div>
-      <div class="specs">CL18, Black Heatspreader</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'G.Skill Ripjaws V DDR4 16GB 3600MHz',1499)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <!-- Kingston RAM -->
-  <div class="card" data-name="Kingston Fury Beast DDR5 32GB 6000MHz" data-brand="kingston" data-price="2899">
-    <div class="thumb"><img src="ram9.jpg" alt="Kingston Fury Beast DDR5"></div>
-    <div class="meta">
-      <div class="title">Kingston Fury Beast DDR5</div>
-      <div class="subtitle">32GB (2x16GB) 6000MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 2,899</div>
-      <div class="specs">CL40, Black Heatspreader</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'Kingston Fury Beast DDR5 32GB 6000MHz',2899)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <div class="card" data-name="Kingston Fury Renegade DDR4 16GB 3200MHz" data-brand="kingston" data-price="1299">
-    <div class="thumb"><img src="ram10.webp" alt="Kingston Fury Renegade DDR4"></div>
-    <div class="meta">
-      <div class="title">Kingston Fury Renegade DDR4</div>
-      <div class="subtitle">16GB (2x8GB) 3200MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 1,299</div>
-      <div class="specs">CL16, RGB Lighting</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'Kingston Fury Renegade DDR4 16GB 3200MHz',1299)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <!-- TeamGroup RAM -->
-  <div class="card" data-name="TeamGroup T-Force Delta RGB DDR5 32GB 7200MHz" data-brand="teamgroup" data-price="3699">
-    <div class="thumb"><img src="ram11.jpg" alt="TeamGroup T-Force Delta DDR5"></div>
-    <div class="meta">
-      <div class="title">TeamGroup T-Force Delta RGB DDR5</div>
-      <div class="subtitle">32GB (2x16GB) 7200MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 3,699</div>
-      <div class="specs">CL34, RGB Lighting</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'TeamGroup T-Force Delta RGB DDR5 32GB 7200MHz',3699)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
-
-  <div class="card" data-name="TeamGroup Vulcan Z DDR4 8GB 3200MHz" data-brand="teamgroup" data-price="699">
-    <div class="thumb"><img src="ram13.jpg" alt="TeamGroup Vulcan Z DDR4"></div>
-    <div class="meta">
-      <div class="title">TeamGroup Vulcan Z DDR4</div>
-      <div class="subtitle">8GB (1x8GB) 3200MHz</div>
-    </div>
-    <div class="price-row">
-      <div class="price">R 699</div>
-      <div class="specs">CL16, Grey Heatspreader</div>
-    </div>
-    <div class="card-actions">
-      <button class="btn" onclick="addToCart(event,'TeamGroup Vulcan Z DDR4 8GB 3200MHz',699)">Add to Cart</button>
-      <button class="ghost" onclick="viewDetails(event)">Details</button>
-    </div>
-  </div>
     </section>
 
-    <footer>
-      <p>Prices are examples — replace placeholder images with actual product images.</p>
-    </footer>
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cat-grid large" id="shop-categories"></div>
+      </div>
+    </section>
+
+    <div class="container shop">
+      <aside class="filters" id="filters" aria-label="Filters"></aside>
+      <div>
+        <div class="toolbar">
+          <div class="count">Showing <strong id="result-count">0</strong> products</div>
+          <div class="right">
+            <button class="btn btn-ghost filter-toggle" type="button" id="filter-toggle" aria-controls="filters" aria-expanded="false">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg> Filters
+            </button>
+            <select class="field" id="sort" aria-label="Sort products">
+              <option value="">Recommended</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </div>
   </main>
-</div>
 
-<script>
-const grid = document.getElementById('product-grid');
-const cards = Array.from(grid.querySelectorAll('.card'));
-const searchTop = document.getElementById('search-top');
-const globalSearch = document.getElementById('global-search');
-const resultCount = document.getElementById('result-count');
-const sortControls = [document.getElementById('sort'), document.getElementById('sort-sidebar')];
-
-function normalize(str){return String(str||'').toLowerCase();}
-function updateCount(visible){resultCount.textContent=visible;}
-
-function applyFilters(){
-  const q1 = normalize(searchTop.value);
-  const q2 = normalize(globalSearch.value);
-  const corsair = document.getElementById('brand-corsair').checked;
-  const gskill = document.getElementById('brand-gskill').checked;
-  const kingston = document.getElementById('brand-kingston').checked;
-  const type = document.getElementById('type').value;
-  const sortVal = sortControls[0].value || sortControls[1].value;
-
-  let visibleCount=0;
-  cards.forEach(card=>{
-    const name = normalize(card.dataset.name);
-    const brand = normalize(card.dataset.brand);
-    const ramType = card.dataset.type;
-    const qMatch = (!q1 && !q2) || name.includes(q1) || name.includes(q2);
-    const brandMatch = (!corsair && !gskill && !kingston) || 
-                       (corsair && brand==='corsair') || 
-                       (gskill && brand==='gskill') || 
-                       (kingston && brand==='kingston');
-    const typeMatch = !type || ramType===type;
-
-    const show = qMatch && brandMatch && typeMatch;
-    card.style.display = show ? '' : 'none';
-    if(show) visibleCount++;
-  });
-
-  const visibleCards = cards.filter(c=>c.style.display!=='none');
-  if(sortVal==='low'){visibleCards.sort((a,b)=>a.dataset.price-b.dataset.price);}
-  else if(sortVal==='high'){visibleCards.sort((a,b)=>b.dataset.price-a.dataset.price);}
-  visibleCards.forEach(c=>grid.appendChild(c));
-
-  updateCount(visibleCount);
-}
-
-[searchTop, globalSearch].forEach(inp=>inp.addEventListener('input',applyFilters));
-['brand-corsair','brand-gskill','brand-kingston','type','sort','sort-sidebar'].forEach(id=>{
-  const el=document.getElementById(id);
-  if(el) el.addEventListener('change',applyFilters);
-});
-
-function resetFilters(){
-  searchTop.value='';
-  globalSearch.value='';
-  document.getElementById('brand-corsair').checked=false;
-  document.getElementById('brand-gskill').checked=false;
-  document.getElementById('brand-kingston').checked=false;
-  document.getElementById('type').value='';
-  sortControls.forEach(s=>s.value='');
-  applyFilters();
-}
-function addToCart(e,name,price){
-  e.preventDefault();
-  alert(name+" added to cart — R "+price);
-}
-function viewDetails(e){
-  e.preventDefault();
-  const card = e.target.closest('.card');
-  alert(card.dataset.name+" — R "+card.dataset.price);
-}
-applyFilters();
-</script>
+  <script src="assets/catalog.js"></script>
+  <script src="assets/site.js"></script>
 </body>
 </html>

@@ -1,278 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>All Components - Bargain PC's & Parts</title>
-<style>
-/* === RESET === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0d0d0d;
-  color: #fff;
-}
-
-/* === HEADER === */
-header {
-  background-color: #1a1a1a;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #0077ff;
-}
-
-nav {
-  display: flex;
-  gap: 20px;
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #0077ff;
-}
-
-.cart-icon {
-  position: relative;
-  cursor: pointer;
-}
-
-.cart-icon img {
-  width: 28px;
-  height: 28px;
-}
-
-.cart-count {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #0077ff;
-  color: #000;
-  font-size: 12px;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-/* === PAGE TITLE === */
-h1 {
-  text-align: center;
-  margin: 30px 0;
-  color: #0077ff;
-  font-size: 2rem;
-}
-
-/* === GRID LAYOUT === */
-.container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 25px;
-}
-
-/* === CARD === */
-.category-card {
-  background-color: #1f1f1f;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 119, 255, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 119, 255, 0.5);
-}
-
-/* === IMAGE === */
-.category-image {
-  width: 90px;
-  height: 90px;
-  margin-bottom: 20px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid #0077ff;
-}
-
-.category-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* === BUTTONS === */
-.buttons-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-top: auto;
-}
-
-.btn {
-  background-color: #2a2a2a;
-  color: #0077ff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #0077ff;
-  color: #000;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop all products | Bargain PC's</title>
+  <meta name="description" content="Browse every PC component and gaming accessory at Bargain PC's." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
 </head>
-<body>
-<!-- HEADER -->
-<header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <div class="cart-icon" onclick="location.href='cart.html'" style="cursor: pointer;">
-    <img src="cart.png" alt="Cart">
-    <div class="cart-count">0</div>
-  </div>
-</header>
+<body data-page="shop">
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <nav class="crumbs" id="shop-crumb" aria-label="Breadcrumb"></nav>
+        <h1 id="shop-title">Shop all products</h1>
+        <p id="shop-blurb"></p>
+      </div>
+    </section>
 
-<!-- PAGE TITLE -->
-<h1>All PC Components</h1>
+    <section class="section" style="padding-bottom:0">
+      <div class="container">
+        <div class="cat-grid large" id="shop-categories"></div>
+      </div>
+    </section>
 
-<!-- GRID -->
-<div class="container">
+    <div class="container shop">
+      <aside class="filters" id="filters" aria-label="Filters"></aside>
+      <div>
+        <div class="toolbar">
+          <div class="count">Showing <strong id="result-count">0</strong> products</div>
+          <div class="right">
+            <button class="btn btn-ghost filter-toggle" type="button" id="filter-toggle" aria-controls="filters" aria-expanded="false">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18M6 12h12M10 19h4"/></svg> Filters
+            </button>
+            <select class="field" id="sort" aria-label="Sort products">
+              <option value="">Recommended</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div class="product-grid" id="product-grid"></div>
+      </div>
+    </div>
+  </main>
 
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i1.jpg" alt="CPU Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="Allcpu.html">All CPUs</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i2.jpg" alt="GPU Icon">
-    </div>
-    <div class="buttons-container">
-     <a class="btn" href="gpu.html">All GPU</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i3.png" alt="Motherboard Icon">
-    </div>
-    <div class="buttons-container">
-       <a class="btn" href="motherbb.html">All Motherboards</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i4.jpg" alt="RAM Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="Allram.html">All RAM </a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i5.png" alt="Storage Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="allstorage.html">All storages</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i6.jpg" alt="PSU Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="power supplies.html">Power Supplies</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i7.avif" alt="PC Case Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="Pccase.html">All PC Cases</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i8.webp" alt="Cooling Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="cooling.html">Cooling</a>
-    </div>
-  </div>
-
-  <!-- New Categories -->
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i9.png" alt="Mouse Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="mouse.html">All Mouses</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i10.svg" alt="Keyboard Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="keyboard.html">All Keyboards</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i11.jpg" alt="Headset Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="headsets.html">All Headsets</a>
-    </div>
-  </div>
-
-  <div class="category-card">
-    <div class="category-image">
-      <img src="i12.jpg" alt="Monitor Icon">
-    </div>
-    <div class="buttons-container">
-      <a class="btn" href="monitor.html">All Monitors</a>
-    </div>
-  </div>
-
-</div>
+  <script src="assets/catalog.js"></script>
+  <script src="assets/site.js"></script>
 </body>
-
 </html>
